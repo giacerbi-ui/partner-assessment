@@ -8,271 +8,80 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f5f7f5;
-      color: #1a1a1a;
-      min-height: 100vh;
-      padding: 2rem 1rem 4rem;
-    }
-
-    .wrap {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    /* Header */
-    .site-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 2rem;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo-mark {
-      width: 36px; height: 36px;
-      background: #2D6A4F;
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-    }
+    body { font-family: 'Inter', sans-serif; background: #f5f7f5; color: #1a1a1a; min-height: 100vh; padding: 2rem 1rem 4rem; }
+    .wrap { max-width: 680px; margin: 0 auto; }
+    .site-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-mark { width: 36px; height: 36px; background: #2D6A4F; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
     .logo-mark svg { width: 20px; height: 20px; fill: #fff; }
     .logo-text { font-size: 15px; font-weight: 600; color: #1B3A2D; letter-spacing: -0.3px; }
     .logo-sub { font-size: 12px; color: #5a7a6a; margin-top: 1px; }
-    .confidential-badge {
-      font-size: 11px; font-weight: 500;
-      background: #fff3cd; color: #856404;
-      border: 1px solid #ffc107;
-      padding: 4px 10px; border-radius: 20px;
-    }
-
-    /* Form header card */
-    .form-header {
-      background: #fff;
-      border: 1px solid #dde8e2;
-      border-radius: 16px;
-      padding: 1.75rem;
-      margin-bottom: 1.5rem;
-    }
-    .form-header h1 {
-      font-size: 22px; font-weight: 600;
-      color: #1B3A2D; margin-bottom: 6px;
-    }
-    .form-header p {
-      font-size: 14px; color: #555; line-height: 1.65;
-    }
+    .confidential-badge { font-size: 11px; font-weight: 500; background: #fff3cd; color: #856404; border: 1px solid #ffc107; padding: 4px 10px; border-radius: 20px; }
+    .form-header { background: #fff; border: 1px solid #dde8e2; border-radius: 16px; padding: 1.75rem; margin-bottom: 1.5rem; }
+    .form-header h1 { font-size: 22px; font-weight: 600; color: #1B3A2D; margin-bottom: 8px; }
+    .form-header p { font-size: 14px; color: #555; line-height: 1.65; }
     .progress-wrap { margin-top: 1.25rem; }
-    .progress-track {
-      height: 4px; background: #e8ede9;
-      border-radius: 2px; overflow: hidden;
-    }
-    .progress-fill {
-      height: 4px; background: #2D6A4F;
-      border-radius: 2px;
-      transition: width 0.4s ease;
-    }
-    .progress-meta {
-      display: flex; justify-content: space-between;
-      margin-top: 6px;
-      font-size: 12px; color: #888;
-    }
-
-    /* Section card */
-    .section-card {
-      background: #fff;
-      border: 1px solid #dde8e2;
-      border-radius: 16px;
-      padding: 1.5rem 1.75rem;
-      margin-bottom: 1rem;
-      display: none;
-    }
+    .progress-track { height: 4px; background: #e8ede9; border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 4px; background: #2D6A4F; border-radius: 2px; transition: width 0.4s ease; }
+    .progress-meta { display: flex; justify-content: space-between; margin-top: 6px; font-size: 12px; color: #888; }
+    .section-card { background: #fff; border: 1px solid #dde8e2; border-radius: 16px; padding: 1.5rem 1.75rem; margin-bottom: 1rem; display: none; }
     .section-card.active { display: block; }
-
-    .section-header {
-      display: flex; align-items: center; gap: 12px;
-      padding-bottom: 1rem;
-      margin-bottom: 1.25rem;
-      border-bottom: 1px solid #edf3ef;
-    }
-    .section-pill {
-      width: 32px; height: 32px;
-      background: #2D6A4F; color: #fff;
-      border-radius: 50%;
-      font-size: 14px; font-weight: 600;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
+    .section-header { display: flex; align-items: center; gap: 12px; padding-bottom: 1rem; margin-bottom: 1.25rem; border-bottom: 1px solid #edf3ef; }
+    .section-pill { width: 32px; height: 32px; background: #2D6A4F; color: #fff; border-radius: 50%; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .section-info { flex: 1; }
     .section-title { font-size: 15px; font-weight: 600; color: #1B3A2D; }
     .section-sub { font-size: 12px; color: #888; margin-top: 2px; }
     .section-count { font-size: 12px; color: #2D6A4F; font-weight: 500; white-space: nowrap; }
-
-    /* Question block */
     .q-block { margin-bottom: 1.5rem; }
     .q-block:last-child { margin-bottom: 0; }
-
-    .q-label {
-      display: flex; gap: 10px;
-      margin-bottom: 8px; align-items: flex-start;
-    }
-    .q-code {
-      font-size: 11px; font-weight: 600;
-      color: #2D6A4F;
-      background: #e8f5ee;
-      padding: 3px 8px; border-radius: 4px;
-      flex-shrink: 0; margin-top: 1px;
-      letter-spacing: 0.3px;
-    }
-    .q-text {
-      font-size: 14px; color: #222; line-height: 1.55; font-weight: 500;
-    }
-    .q-hint {
-      font-size: 12px; color: #888; margin-bottom: 8px;
-      padding-left: calc(10px + 32px + 10px);
-      line-height: 1.5;
-    }
-
-    textarea, input[type=text], input[type=email] {
-      width: 100%;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: #1a1a1a;
-      background: #f9fbf9;
-      border: 1px solid #cdd8d0;
-      border-radius: 8px;
-      padding: 10px 12px;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      resize: vertical;
-    }
-    textarea:focus, input:focus {
-      border-color: #2D6A4F;
-      box-shadow: 0 0 0 3px rgba(45,106,79,0.1);
-      background: #fff;
-    }
+    .q-label { display: flex; gap: 10px; margin-bottom: 8px; align-items: flex-start; }
+    .q-code { font-size: 11px; font-weight: 600; color: #2D6A4F; background: #e8f5ee; padding: 3px 8px; border-radius: 4px; flex-shrink: 0; margin-top: 1px; letter-spacing: 0.3px; }
+    .q-text { font-size: 14px; color: #222; line-height: 1.55; font-weight: 500; }
+    .q-hint { font-size: 12px; color: #888; margin-bottom: 8px; padding-left: 52px; line-height: 1.5; }
+    textarea, input[type=text], input[type=email] { width: 100%; font-family: 'Inter', sans-serif; font-size: 14px; color: #1a1a1a; background: #f9fbf9; border: 1px solid #cdd8d0; border-radius: 8px; padding: 10px 12px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; resize: vertical; }
+    textarea:focus, input:focus { border-color: #2D6A4F; box-shadow: 0 0 0 3px rgba(45,106,79,0.1); background: #fff; }
     textarea::placeholder, input::placeholder { color: #aaa; }
-
-    /* Radio / turnover */
-    .radio-group {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px;
-    }
-    .radio-opt {
-      display: flex; align-items: center; gap: 7px;
-      padding: 7px 14px;
-      border: 1px solid #cdd8d0;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 13px; color: #333;
-      transition: all 0.15s;
-      user-select: none;
-    }
+    .radio-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .radio-opt { display: flex; align-items: center; gap: 7px; padding: 7px 14px; border: 1px solid #cdd8d0; border-radius: 8px; cursor: pointer; font-size: 13px; color: #333; transition: all 0.15s; user-select: none; }
     .radio-opt:hover { background: #f0f7f2; border-color: #a0c4b0; }
     .radio-opt input { accent-color: #2D6A4F; }
-    .radio-opt.selected {
-      background: #e8f5ee;
-      border-color: #2D6A4F;
-      color: #1B3A2D;
-      font-weight: 500;
-    }
-
-    /* Nav */
-    .nav-row {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-top: 1.5rem;
-    }
-    .btn {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 9px 20px;
-      font-family: 'Inter', sans-serif;
-      font-size: 14px; font-weight: 500;
-      border-radius: 8px; cursor: pointer;
-      border: 1px solid #cdd8d0;
-      background: #fff; color: #333;
-      transition: all 0.15s;
-    }
+    .radio-opt.selected { background: #e8f5ee; border-color: #2D6A4F; color: #1B3A2D; font-weight: 500; }
+    .yesno-group { display: flex; gap: 10px; margin-top: 6px; }
+    .yesno-opt { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border: 1px solid #cdd8d0; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; color: #333; transition: all 0.15s; user-select: none; }
+    .yesno-opt:hover { background: #f0f7f2; border-color: #a0c4b0; }
+    .yesno-opt input { accent-color: #2D6A4F; }
+    .yesno-opt.selected { background: #e8f5ee; border-color: #2D6A4F; color: #1B3A2D; font-weight: 600; }
+    .comment-box { margin-top: 8px; display: none; }
+    .comment-box.visible { display: block; }
+    .nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; }
+    .btn { display: inline-flex; align-items: center; gap: 7px; padding: 9px 20px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500; border-radius: 8px; cursor: pointer; border: 1px solid #cdd8d0; background: #fff; color: #333; transition: all 0.15s; }
     .btn:hover { background: #f0f7f2; border-color: #a0c4b0; }
     .btn:disabled { opacity: 0.35; cursor: default; pointer-events: none; }
-    .btn-primary {
-      background: #2D6A4F; border-color: #2D6A4F; color: #fff;
-    }
+    .btn-primary { background: #2D6A4F; border-color: #2D6A4F; color: #fff; }
     .btn-primary:hover { background: #1B3A2D; border-color: #1B3A2D; }
-    .btn-submit {
-      width: 100%; justify-content: center;
-      padding: 12px; font-size: 15px;
-      background: #2D6A4F; border-color: #2D6A4F; color: #fff;
-      border-radius: 10px; margin-top: 1.25rem;
-    }
+    .btn-submit { width: 100%; justify-content: center; padding: 12px; font-size: 15px; background: #2D6A4F; border-color: #2D6A4F; color: #fff; border-radius: 10px; margin-top: 1.25rem; }
     .btn-submit:hover { background: #1B3A2D; }
-
-    /* Step dots */
     .dots { display: flex; gap: 7px; align-items: center; }
-    .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: #cdd8d0; cursor: pointer;
-      transition: all 0.2s;
-    }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #cdd8d0; cursor: pointer; transition: all 0.2s; }
     .dot.done { background: #74b893; }
     .dot.active { background: #2D6A4F; width: 20px; border-radius: 4px; }
-
-    /* Fields row */
     .fields-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     @media (max-width: 480px) { .fields-row { grid-template-columns: 1fr; } }
-
-    /* Privacy note */
-    .privacy-note {
-      background: #e8f5ee; border: 1px solid #b8dbc8;
-      border-radius: 8px; padding: 12px 14px;
-      font-size: 12px; color: #2D6A4F; line-height: 1.6;
-      margin-top: 1.25rem;
-      display: flex; gap: 8px; align-items: flex-start;
-    }
+    .privacy-note { background: #e8f5ee; border: 1px solid #b8dbc8; border-radius: 8px; padding: 12px 14px; font-size: 12px; color: #2D6A4F; line-height: 1.6; margin-top: 1.25rem; display: flex; gap: 8px; align-items: flex-start; }
     .privacy-note svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 1px; fill: #2D6A4F; }
-
-    /* Success */
-    .success-msg {
-      display: none; text-align: center; padding: 2.5rem 1rem;
-    }
-    .success-icon {
-      width: 56px; height: 56px;
-      background: #e8f5ee; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1rem;
-    }
+    .success-msg { display: none; text-align: center; padding: 2.5rem 1rem; }
+    .success-icon { width: 56px; height: 56px; background: #e8f5ee; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
     .success-icon svg { width: 28px; height: 28px; stroke: #2D6A4F; fill: none; stroke-width: 2.5; }
     .success-msg h2 { font-size: 18px; font-weight: 600; color: #1B3A2D; margin-bottom: 8px; }
     .success-msg p { font-size: 14px; color: #666; line-height: 1.6; }
-
-    /* Optional tag */
-    .opt-tag {
-      font-size: 11px; color: #888; font-style: italic;
-      background: #f5f5f5; padding: 2px 7px; border-radius: 4px;
-      margin-left: 4px;
-    }
-
-    /* Divider */
-    .section-divider {
-      border: none; border-top: 1px solid #edf3ef;
-      margin: 1.25rem 0;
-    }
-
-    .contact-section {
-      background: #f9fbf9; border-radius: 10px; padding: 1rem;
-      margin-top: 1.25rem;
-    }
-    .contact-section label {
-      display: block; font-size: 13px; font-weight: 500;
-      color: #444; margin-bottom: 6px;
-    }
+    .section-divider { border: none; border-top: 1px solid #edf3ef; margin: 1.25rem 0; }
+    .contact-section { background: #f9fbf9; border-radius: 10px; padding: 1rem; margin-top: 1.25rem; }
+    .contact-section label { display: block; font-size: 13px; font-weight: 500; color: #444; margin-bottom: 6px; }
   </style>
 </head>
 <body>
 <div class="wrap">
 
-  <!-- Header -->
   <div class="site-header">
     <div class="logo">
       <div class="logo-mark">
@@ -286,15 +95,14 @@
     <span class="confidential-badge">Confidential</span>
   </div>
 
-  <!-- Form header -->
   <div class="form-header">
-    <h1>Partner Assessment — Phase 1</h1>
-    <p>This questionnaire is the first step in evaluating a potential collaboration within the Serra Archimede® partner programme. Please answer in English or Italian. There are no right or wrong answers — we are interested in a realistic picture of your organisation. Estimated time: 20–30 minutes.</p>
+    <h1>Partner Assessment</h1>
+    <p>This questionnaire is the first step in evaluating a potential collaboration within the Serra Archimede® partner programme.<br><br>Estimated time: 20 minutes.</p>
     <div class="progress-wrap">
-      <div class="progress-track"><div class="progress-fill" id="pbar" style="width:16.6%"></div></div>
+      <div class="progress-track"><div class="progress-fill" id="pbar" style="width:20%"></div></div>
       <div class="progress-meta">
-        <span id="plabel">Section 1 of 6 — Organisation profile</span>
-        <span id="pcount">0% complete</span>
+        <span id="plabel">Section 1 of 5 — Organisation profile</span>
+        <span id="pcount">20% complete</span>
       </div>
     </div>
   </div>
@@ -309,7 +117,6 @@
       </div>
       <div class="section-count">5 questions</div>
     </div>
-
     <div class="q-block">
       <div class="q-label"><span class="q-code">A1</span><span class="q-text">Company name, country, year of incorporation and legal form.</span></div>
       <textarea id="a1" rows="2" placeholder="E.g. Solverde GmbH, Germany, 2015, GmbH"></textarea>
@@ -319,7 +126,7 @@
       <textarea id="a2" rows="3" placeholder="Brief description of your main activity..."></textarea>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">A3</span><span class="q-text">How many people work in your organisation? Please indicate the approximate breakdown by function (commercial, technical, administrative, other).</span></div>
+      <div class="q-label"><span class="q-code">A3</span><span class="q-text">How many people work in your organisation? Approximate breakdown by function (commercial, technical, administrative).</span></div>
       <textarea id="a3" rows="2" placeholder="E.g. 25 people: 8 commercial, 12 technical, 5 administrative"></textarea>
     </div>
     <div class="q-block">
@@ -345,31 +152,52 @@
         <div class="section-title">Agricultural sector expertise</div>
         <div class="section-sub">Your presence and access to the agricultural world</div>
       </div>
-      <div class="section-count">6 questions</div>
+      <div class="section-count">5 questions</div>
     </div>
     <div class="q-block">
       <div class="q-label"><span class="q-code">B1</span><span class="q-text">Do you already work with farming businesses? In what capacity (supply, consultancy, distribution, financing, representation, other)?</span></div>
       <textarea id="b1" rows="3" placeholder="Describe your current relationship with the agricultural sector..."></textarea>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">B2</span><span class="q-text">In which agricultural supply chains are you most active? (e.g. fruit & vegetables, cereals, wine, floriculture, livestock, other)</span></div>
-      <textarea id="b2" rows="2" placeholder="E.g. fruit and vegetables, cereals..."></textarea>
+      <div class="q-label"><span class="q-code">B2</span><span class="q-text">In which agricultural supply chains are you most active?</span></div>
+      <div class="radio-group">
+        <label class="radio-opt"><input type="radio" name="b2" value="Fruit & vegetables"> Fruit &amp; vegetables</label>
+        <label class="radio-opt"><input type="radio" name="b2" value="Cereals"> Cereals</label>
+        <label class="radio-opt"><input type="radio" name="b2" value="Wine"> Wine</label>
+        <label class="radio-opt"><input type="radio" name="b2" value="Floriculture"> Floriculture</label>
+        <label class="radio-opt"><input type="radio" name="b2" value="Livestock"> Livestock</label>
+        <label class="radio-opt"><input type="radio" name="b2" value="Other"> Other</label>
+      </div>
+      <div class="comment-box" id="b2-comment"><textarea id="b2-other" rows="1" placeholder="Please specify..."></textarea></div>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">B3</span><span class="q-text">Do you have specific experience with protected cultivation (greenhouses)? If so, briefly describe the context.</span></div>
-      <textarea id="b3" rows="3" placeholder="Experience with greenhouses and protected crops..."></textarea>
+      <div class="q-label"><span class="q-code">B3</span><span class="q-text">Do you have specific experience with protected cultivation (greenhouses)?</span></div>
+      <div class="yesno-group">
+        <label class="yesno-opt"><input type="radio" name="b3" value="Yes" onchange="toggleComment('b3-comment', true)"> Yes</label>
+        <label class="yesno-opt"><input type="radio" name="b3" value="No" onchange="toggleComment('b3-comment', false)"> No</label>
+      </div>
+      <div class="comment-box" id="b3-comment"><textarea id="b3-detail" rows="2" placeholder="Briefly describe the context..."></textarea></div>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">B4</span><span class="q-text">How many farming businesses are in your client portfolio or active network? With how many do you maintain regular commercial relationships?</span></div>
-      <textarea id="b4" rows="2" placeholder="E.g. approximately 40 companies, of which 15 with regular relationships"></textarea>
+      <div class="q-label"><span class="q-code">B4</span><span class="q-text">How many farming businesses are in your client portfolio or active network?</span></div>
+      <div class="radio-group">
+        <label class="radio-opt"><input type="radio" name="b4" value="< 10"> &lt; 10</label>
+        <label class="radio-opt"><input type="radio" name="b4" value="10–50"> 10 – 50</label>
+        <label class="radio-opt"><input type="radio" name="b4" value="50–200"> 50 – 200</label>
+        <label class="radio-opt"><input type="radio" name="b4" value="> 200"> &gt; 200</label>
+      </div>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">B5</span><span class="q-text">How would you describe the greenhouse and agrivoltaic market in your country? Which geographical areas or types of farming businesses do you consider most receptive to an innovative solution like Serra Archimede®?</span></div>
-      <textarea id="b5" rows="4" placeholder="Description of the local market and areas of greatest potential..."></textarea>
+      <div class="q-label"><span class="q-code">B5</span><span class="q-text">Which geographical areas or types of farming businesses in your country do you consider most receptive to an innovative solution like Serra Archimede®?</span></div>
+      <textarea id="b5" rows="3" placeholder="Areas and profiles of greatest potential..."></textarea>
     </div>
     <div class="q-block">
       <div class="q-label"><span class="q-code">B6</span><span class="q-text">Do you have direct access to agricultural land (ownership, leases, network of landowners, trade associations)?</span></div>
-      <textarea id="b6" rows="2" placeholder="Describe your access to agricultural land..."></textarea>
+      <div class="yesno-group">
+        <label class="yesno-opt"><input type="radio" name="b6" value="Yes" onchange="toggleComment('b6-comment', true)"> Yes</label>
+        <label class="yesno-opt"><input type="radio" name="b6" value="No" onchange="toggleComment('b6-comment', false)"> No</label>
+      </div>
+      <div class="comment-box" id="b6-comment"><textarea id="b6-detail" rows="2" placeholder="Describe your access to agricultural land..."></textarea></div>
     </div>
   </div>
 
@@ -379,12 +207,12 @@
       <div class="section-pill">C</div>
       <div class="section-info">
         <div class="section-title">Energy sector expertise</div>
-        <div class="section-sub">Your experience with energy and renewables</div>
+        <div class="section-sub">Your experience with energy and photovoltaics</div>
       </div>
-      <div class="section-count">5 questions</div>
+      <div class="section-count">4 questions</div>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">C1</span><span class="q-text">Do you have experience in photovoltaics or renewable energy? If so, in what role (developer, installer, financer, consultant, distributor, other)?</span></div>
+      <div class="q-label"><span class="q-code">C1</span><span class="q-text">Do you have experience in photovoltaics? If so, in what role (developer, installer, financer, consultant, distributor, other)?</span></div>
       <textarea id="c1" rows="3" placeholder="Describe your role in the energy sector..."></textarea>
     </div>
     <div class="q-block">
@@ -392,16 +220,20 @@
       <textarea id="c2" rows="3" placeholder="E.g. 15 plants totalling 22 MWp, industrial photovoltaic..."></textarea>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">C3</span><span class="q-text">Are you familiar with the incentive framework for photovoltaics in your country (feed-in tariff, FiP, EEG, prosumer scheme, other)? Have you already worked operationally with these mechanisms?</span></div>
-      <textarea id="c3" rows="3" placeholder="Describe your experience with local incentives..."></textarea>
+      <div class="q-label"><span class="q-code">C3</span><span class="q-text">Are you familiar with the incentive framework for photovoltaics in your country (feed-in tariff, FiP, EEG, prosumer scheme, other)?</span></div>
+      <div class="yesno-group">
+        <label class="yesno-opt"><input type="radio" name="c3" value="Yes" onchange="toggleComment('c3-comment', true)"> Yes</label>
+        <label class="yesno-opt"><input type="radio" name="c3" value="No" onchange="toggleComment('c3-comment', false)"> No</label>
+      </div>
+      <div class="comment-box" id="c3-comment"><textarea id="c3-detail" rows="2" placeholder="Which mechanisms and how have you used them?"></textarea></div>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">C4</span><span class="q-text">Do you have experience with Energy Communities, battery storage systems (BESS) or shared self-consumption solutions?</span></div>
-      <textarea id="c4" rows="2" placeholder="Experience with Energy Communities, BESS, self-consumption..."></textarea>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-code">C5</span><span class="q-text">Do you have relationships with local banks or investors active in financing energy plants or agricultural infrastructure?</span></div>
-      <textarea id="c5" rows="2" placeholder="Describe your financial relationships..."></textarea>
+      <div class="q-label"><span class="q-code">C4</span><span class="q-text">Do you have experience with Energy Communities or battery storage systems (BESS)?</span></div>
+      <div class="yesno-group">
+        <label class="yesno-opt"><input type="radio" name="c4" value="Yes" onchange="toggleComment('c4-comment', true)"> Yes</label>
+        <label class="yesno-opt"><input type="radio" name="c4" value="No" onchange="toggleComment('c4-comment', false)"> No</label>
+      </div>
+      <div class="comment-box" id="c4-comment"><textarea id="c4-detail" rows="2" placeholder="Brief description..."></textarea></div>
     </div>
   </div>
 
@@ -413,27 +245,38 @@
         <div class="section-title">Commercial and operational capability</div>
         <div class="section-sub">How you operate in the market and what you can bring</div>
       </div>
-      <div class="section-count">5 questions</div>
+      <div class="section-count">4 questions</div>
     </div>
     <div class="q-block">
       <div class="q-label"><span class="q-code">D1</span><span class="q-text">Do you have a network of local installers, technical suppliers or subcontractors you collaborate with regularly?</span></div>
-      <textarea id="d1" rows="2" placeholder="Describe your local supplier network..."></textarea>
+      <div class="yesno-group">
+        <label class="yesno-opt"><input type="radio" name="d1" value="Yes" onchange="toggleComment('d1-comment', true)"> Yes</label>
+        <label class="yesno-opt"><input type="radio" name="d1" value="No" onchange="toggleComment('d1-comment', false)"> No</label>
+      </div>
+      <div class="comment-box" id="d1-comment"><textarea id="d1-detail" rows="2" placeholder="Describe your local supplier network..."></textarea></div>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">D2</span><span class="q-text">Are you able to independently manage the permitting process for new agrivoltaic installations in your country, or will you need specific support from REGRAN?</span></div>
-      <textarea id="d2" rows="3" placeholder="Describe your permitting capabilities..."></textarea>
+      <div class="q-label"><span class="q-code">D2</span><span class="q-text">Are you able to independently manage the permitting process for new agrivoltaic installations in your country?</span></div>
+      <div class="yesno-group">
+        <label class="yesno-opt"><input type="radio" name="d2" value="Yes" onchange="toggleComment('d2-comment', true)"> Yes</label>
+        <label class="yesno-opt"><input type="radio" name="d2" value="No" onchange="toggleComment('d2-comment', false)"> No — I would need REGRAN support</label>
+      </div>
+      <div class="comment-box" id="d2-comment"><textarea id="d2-detail" rows="2" placeholder="Any specifics to add..."></textarea></div>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">D3</span><span class="q-text">Do you have marketing and communications capabilities in the local language to independently reach target farming businesses in your market?</span></div>
-      <textarea id="d3" rows="2" placeholder="E.g. in-house marketing team, local agency, materials in German/Polish..."></textarea>
+      <div class="q-label"><span class="q-code">D3</span><span class="q-text">Do you have marketing and communications capabilities in the local language to reach target farming businesses?</span></div>
+      <div class="yesno-group">
+        <label class="yesno-opt"><input type="radio" name="d3" value="Yes" onchange="toggleComment('d3-comment', true)"> Yes</label>
+        <label class="yesno-opt"><input type="radio" name="d3" value="No" onchange="toggleComment('d3-comment', false)"> No</label>
+      </div>
+      <div class="comment-box" id="d3-comment"><textarea id="d3-detail" rows="1" placeholder="E.g. in-house team, local agency..."></textarea></div>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">D4</span><span class="q-text">Describe your typical commercial process: how you acquire new clients, which channels you use, and average timeframes for developing a new opportunity.</span></div>
-      <textarea id="d4" rows="3" placeholder="Describe your commercial approach..."></textarea>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-code">D5</span><span class="q-text">Have you already collaborated with Italian companies or international partners on development or distribution projects? If so, briefly describe the experience.</span></div>
-      <textarea id="d5" rows="3" placeholder="International partnership experience..."></textarea>
+      <div class="q-label"><span class="q-code">D4</span><span class="q-text">Have you already collaborated with Italian companies or international partners on development or distribution projects?</span></div>
+      <div class="yesno-group">
+        <label class="yesno-opt"><input type="radio" name="d4" value="Yes"> Yes</label>
+        <label class="yesno-opt"><input type="radio" name="d4" value="No"> No</label>
+      </div>
     </div>
   </div>
 
@@ -443,51 +286,21 @@
       <div class="section-pill">E</div>
       <div class="section-info">
         <div class="section-title">Motivation and vision</div>
-        <div class="section-sub">Why you want to work with REGRAN and what you expect</div>
+        <div class="section-sub">What you expect and what you can bring</div>
       </div>
-      <div class="section-count">5 questions</div>
+      <div class="section-count">3 questions</div>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">E1</span><span class="q-text">Why are you interested in the Serra Archimede® model? What struck you most in the proposal you received?</span></div>
-      <textarea id="e1" rows="4" placeholder="Describe your motivations..."></textarea>
+      <div class="q-label"><span class="q-code">E1</span><span class="q-text">What is the main strength you believe you can bring to the partnership with REGRAN in your market?</span></div>
+      <textarea id="e1" rows="3" placeholder="Your main contribution to the partnership..."></textarea>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">E2</span><span class="q-text">What is the main strength you believe you can bring to the partnership with REGRAN in your market?</span></div>
-      <textarea id="e2" rows="3" placeholder="Your main contribution to the partnership..."></textarea>
+      <div class="q-label"><span class="q-code">E2</span><span class="q-text">In your view, what is the main obstacle to developing Serra Archimede® installations in your country?</span></div>
+      <textarea id="e2" rows="3" placeholder="Regulatory, cultural, financial, commercial..."></textarea>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">E3</span><span class="q-text">In your view, what is the main obstacle to developing Serra Archimede® installations in your country? How do you plan to address it?</span></div>
-      <textarea id="e3" rows="3" placeholder="Perceived obstacles and how you would address them..."></textarea>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-code">E4</span><span class="q-text">What do you expect from REGRAN in terms of support (technical, commercial, training, permitting)? What are you confident you can manage independently?</span></div>
-      <textarea id="e4" rows="3" placeholder="Support expectations and areas of autonomy..."></textarea>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-code">E5</span><span class="q-text">Over a 3-year horizon, what volume of activity (number of installations or market potential) do you realistically believe is achievable in your country with REGRAN's support?</span></div>
-      <textarea id="e5" rows="2" placeholder="E.g. 3–5 installations in the first 3 years, estimated market potential..."></textarea>
-    </div>
-  </div>
-
-  <!-- SECTION F -->
-  <div class="section-card" id="sec-F">
-    <div class="section-header">
-      <div class="section-pill">F</div>
-      <div class="section-info">
-        <div class="section-title">References and documentation</div>
-        <div class="section-sub">Optional — does not affect the evaluation</div>
-      </div>
-      <div class="section-count">2 questions</div>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-code">F1</span><span class="q-text">Can you provide 1–2 references for relevant projects in the agricultural or energy sector? <span class="opt-tag">Optional</span></span></div>
-      <div class="q-hint">Project name, country, role, year.</div>
-      <textarea id="f1" rows="3" placeholder="E.g. 5 MWp PV plant for agricultural cooperative, Poland, EPC contractor, 2023"></textarea>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-code">F2</span><span class="q-text">Would you like to share company presentation materials? <span class="opt-tag">Optional</span></span></div>
-      <div class="q-hint">Website link, company profile, brochure, or other.</div>
-      <textarea id="f2" rows="2" placeholder="Links or references to your company materials..."></textarea>
+      <div class="q-label"><span class="q-code">E3</span><span class="q-text">What do you expect from REGRAN in terms of support (technical, commercial, training, permitting)?</span></div>
+      <textarea id="e3" rows="3" placeholder="Your support expectations from REGRAN..."></textarea>
     </div>
 
     <hr class="section-divider">
@@ -518,11 +331,10 @@
         <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
       </div>
       <h2>Questionnaire submitted successfully</h2>
-      <p>Thank you. Your email client has opened with all your answers pre-filled.<br>The REGRAN team will contact you within 3–5 business days to schedule the follow-up call.</p>
+      <p>Thank you. The REGRAN team will contact you within 3–5 business days to schedule the follow-up call.</p>
     </div>
   </div>
 
-  <!-- Navigation -->
   <div class="nav-row">
     <button class="btn" id="btn-prev" onclick="goTo(current-1)" disabled>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
@@ -535,18 +347,11 @@
     </button>
   </div>
 
-</div><!-- /wrap -->
+</div>
 
 <script>
-const sections = ['A','B','C','D','E','F'];
-const sectionNames = [
-  'Organisation profile',
-  'Agricultural expertise',
-  'Energy expertise',
-  'Commercial capability',
-  'Motivation & vision',
-  'References'
-];
+const sections = ['A','B','C','D','E'];
+const sectionNames = ['Organisation profile','Agricultural expertise','Energy expertise','Commercial capability','Motivation & vision'];
 let current = 0;
 
 function buildDots() {
@@ -555,7 +360,7 @@ function buildDots() {
   sections.forEach((s, i) => {
     const d = document.createElement('div');
     d.className = 'dot' + (i < current ? ' done' : i === current ? ' active' : '');
-    d.title = 'Section ' + s + ' — ' + sectionNames[i];
+    d.title = sectionNames[i];
     d.onclick = () => goTo(i);
     c.appendChild(d);
   });
@@ -574,17 +379,31 @@ function goTo(n) {
   current = n;
   document.getElementById('sec-' + sections[current]).classList.add('active');
   document.getElementById('btn-prev').disabled = current === 0;
-  const isLast = current === sections.length - 1;
-  document.getElementById('btn-next').style.display = isLast ? 'none' : '';
+  document.getElementById('btn-next').style.display = current === sections.length - 1 ? 'none' : '';
   buildDots();
   updateProgress();
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleComment(id, show) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('visible', show);
 }
 
 document.querySelectorAll('.radio-group input[type=radio]').forEach(r => {
   r.addEventListener('change', function() {
     this.closest('.radio-group').querySelectorAll('.radio-opt').forEach(o => o.classList.remove('selected'));
     this.closest('.radio-opt').classList.add('selected');
+    if (this.name === 'b2') {
+      document.getElementById('b2-comment').classList.toggle('visible', this.value === 'Other');
+    }
+  });
+});
+
+document.querySelectorAll('.yesno-group input[type=radio]').forEach(r => {
+  r.addEventListener('change', function() {
+    this.closest('.yesno-group').querySelectorAll('.yesno-opt').forEach(o => o.classList.remove('selected'));
+    this.closest('.yesno-opt').classList.add('selected');
   });
 });
 
@@ -593,72 +412,65 @@ function val(id) {
   return el ? el.value.trim() : '';
 }
 
-function submitForm() {
-  const to = 'estero@serrarchimede.it';
-  const company = val('a1').split(',')[0] || 'Partner';
-  const name = val('fname') || 'Anonymous';
-  const subject = encodeURIComponent('Serra Archimede® — Partner Assessment Phase 1 — ' + company);
+function radioVal(name) {
+  const el = document.querySelector('input[name="' + name + '"]:checked');
+  return el ? el.value : '';
+}
 
-  const sections_data = [
-    ['A — ORGANISATION PROFILE', [
-      ['A1 – Company, country, year, legal form', val('a1')],
-      ['A2 – Main activity', val('a2')],
-      ['A3 – Organisation', val('a3')],
-      ['A4 – Turnover', (document.querySelector('input[name="a4"]:checked') || {}).value || ''],
-      ['A5 – Active markets', val('a5')],
-    ]],
-    ['B — AGRICULTURAL EXPERTISE', [
-      ['B1 – Relationship with farming businesses', val('b1')],
-      ['B2 – Supply chains', val('b2')],
-      ['B3 – Greenhouse experience', val('b3')],
-      ['B4 – Agricultural portfolio', val('b4')],
-      ['B5 – Local greenhouse / agrivoltaic market', val('b5')],
-      ['B6 – Access to land', val('b6')],
-    ]],
-    ['C — ENERGY EXPERTISE', [
-      ['C1 – PV / renewable experience', val('c1')],
-      ['C2 – RES plants developed', val('c2')],
-      ['C3 – Incentive framework', val('c3')],
-      ['C4 – Energy Communities / BESS', val('c4')],
-      ['C5 – Banking relationships', val('c5')],
-    ]],
-    ['D — COMMERCIAL & OPERATIONAL CAPABILITY', [
-      ['D1 – Installer / supplier network', val('d1')],
-      ['D2 – Permitting capability', val('d2')],
-      ['D3 – Local marketing', val('d3')],
-      ['D4 – Commercial process', val('d4')],
-      ['D5 – International partnerships', val('d5')],
-    ]],
-    ['E — MOTIVATION & VISION', [
-      ['E1 – Motivation', val('e1')],
-      ['E2 – Key strength', val('e2')],
-      ['E3 – Main obstacle', val('e3')],
-      ['E4 – Expectations from REGRAN', val('e4')],
-      ['E5 – Volume target (3 years)', val('e5')],
-    ]],
-    ['F — REFERENCES', [
-      ['F1 – Project references', val('f1')],
-      ['F2 – Company materials', val('f2')],
-    ]],
-  ];
+async function submitForm() {
+  const btn = document.querySelector('.btn-submit');
+  btn.disabled = true;
+  btn.innerHTML = 'Sending...';
 
-  let body = 'REGRAN × SERRA ARCHIMEDE® — PARTNER ASSESSMENT PHASE 1\n';
-  body += '='.repeat(54) + '\n\n';
-  body += 'Submitted by: ' + name + '  |  Role: ' + val('frole') + '\n';
-  body += 'Email: ' + val('femail') + '\n\n';
-  body += '-'.repeat(54) + '\n\n';
+  const data = {
+    _subject: 'Serra Archimede® — Partner Assessment — ' + (val('a1').split(',')[0] || 'Partner'),
+    _replyto: val('femail'),
+    contact_name: val('fname'),
+    contact_role: val('frole'),
+    contact_email: val('femail'),
+    A1_company: val('a1'),
+    A2_activity: val('a2'),
+    A3_organisation: val('a3'),
+    A4_turnover: radioVal('a4'),
+    A5_markets: val('a5'),
+    B1_farming_relationship: val('b1'),
+    B2_supply_chain: radioVal('b2') + (val('b2-other') ? ' — ' + val('b2-other') : ''),
+    B3_greenhouse_experience: radioVal('b3') + (val('b3-detail') ? ' — ' + val('b3-detail') : ''),
+    B4_portfolio_size: radioVal('b4'),
+    B5_receptive_areas: val('b5'),
+    B6_land_access: radioVal('b6') + (val('b6-detail') ? ' — ' + val('b6-detail') : ''),
+    C1_pv_experience: val('c1'),
+    C2_res_plants: val('c2'),
+    C3_incentive_framework: radioVal('c3') + (val('c3-detail') ? ' — ' + val('c3-detail') : ''),
+    C4_bess_cer: radioVal('c4') + (val('c4-detail') ? ' — ' + val('c4-detail') : ''),
+    D1_supplier_network: radioVal('d1') + (val('d1-detail') ? ' — ' + val('d1-detail') : ''),
+    D2_permitting: radioVal('d2') + (val('d2-detail') ? ' — ' + val('d2-detail') : ''),
+    D3_local_marketing: radioVal('d3') + (val('d3-detail') ? ' — ' + val('d3-detail') : ''),
+    D4_international_partnerships: radioVal('d4'),
+    E1_key_strength: val('e1'),
+    E2_main_obstacle: val('e2'),
+    E3_expectations: val('e3'),
+  };
 
-  sections_data.forEach(([secTitle, fields]) => {
-    body += secTitle + '\n' + '-'.repeat(secTitle.length) + '\n\n';
-    fields.forEach(([label, answer]) => {
-      if (answer) body += label + ':\n' + answer + '\n\n';
+  try {
+    const response = await fetch('https://formspree.io/f/xeedgakd', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
     });
-  });
-
-  window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + encodeURIComponent(body);
-
-  document.getElementById('submit-area').style.display = 'none';
-  document.getElementById('success-msg').style.display = 'block';
+    if (response.ok) {
+      document.getElementById('submit-area').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.innerHTML = 'Submit questionnaire to REGRAN';
+      alert('There was an error. Please try again or contact estero@serrarchimede.it directly.');
+    }
+  } catch(e) {
+    btn.disabled = false;
+    btn.innerHTML = 'Submit questionnaire to REGRAN';
+    alert('Connection error. Please try again or contact estero@serrarchimede.it directly.');
+  }
 }
 
 buildDots();
