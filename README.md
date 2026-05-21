@@ -1,2 +1,2 @@
-# -partner-assessment
+# partner-assessment
 Serra Archimede
