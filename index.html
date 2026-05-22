@@ -28,6 +28,7 @@
     .section-card.active { display: block; }
     .section-header { display: flex; align-items: center; gap: 12px; padding-bottom: 1rem; margin-bottom: 1.25rem; border-bottom: 1px solid #edf3ef; }
     .section-pill { width: 32px; height: 32px; background: #2D6A4F; color: #fff; border-radius: 50%; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .section-pill.intro { background: #1B3A2D; }
     .section-info { flex: 1; }
     .section-title { font-size: 15px; font-weight: 600; color: #1B3A2D; }
     .section-sub { font-size: 12px; color: #888; margin-top: 2px; }
@@ -37,15 +38,23 @@
     .q-label { display: flex; gap: 10px; margin-bottom: 8px; align-items: flex-start; }
     .q-code { font-size: 11px; font-weight: 600; color: #2D6A4F; background: #e8f5ee; padding: 3px 8px; border-radius: 4px; flex-shrink: 0; margin-top: 1px; letter-spacing: 0.3px; }
     .q-text { font-size: 14px; color: #222; line-height: 1.55; font-weight: 500; }
-    .q-hint { font-size: 12px; color: #888; margin-bottom: 8px; padding-left: 52px; line-height: 1.5; }
+    .field-label { font-size: 13px; font-weight: 600; color: #1B3A2D; margin-bottom: 6px; display: block; }
+    .field-label .req { color: #c0392b; margin-left: 2px; }
     textarea, input[type=text], input[type=email] { width: 100%; font-family: 'Inter', sans-serif; font-size: 14px; color: #1a1a1a; background: #f9fbf9; border: 1px solid #cdd8d0; border-radius: 8px; padding: 10px 12px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; resize: vertical; }
     textarea:focus, input:focus { border-color: #2D6A4F; box-shadow: 0 0 0 3px rgba(45,106,79,0.1); background: #fff; }
     textarea::placeholder, input::placeholder { color: #aaa; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    @media (max-width: 520px) { .grid-2 { grid-template-columns: 1fr; } }
     .radio-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
     .radio-opt { display: flex; align-items: center; gap: 7px; padding: 7px 14px; border: 1px solid #cdd8d0; border-radius: 8px; cursor: pointer; font-size: 13px; color: #333; transition: all 0.15s; user-select: none; }
     .radio-opt:hover { background: #f0f7f2; border-color: #a0c4b0; }
-    .radio-opt input { accent-color: #2D6A4F; }
+    .radio-opt input[type=radio] { accent-color: #2D6A4F; }
     .radio-opt.selected { background: #e8f5ee; border-color: #2D6A4F; color: #1B3A2D; font-weight: 500; }
+    .check-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+    .check-opt { display: flex; align-items: center; gap: 7px; padding: 7px 14px; border: 1px solid #cdd8d0; border-radius: 8px; cursor: pointer; font-size: 13px; color: #333; transition: all 0.15s; user-select: none; }
+    .check-opt:hover { background: #f0f7f2; border-color: #a0c4b0; }
+    .check-opt input[type=checkbox] { accent-color: #2D6A4F; width: 14px; height: 14px; }
+    .check-opt.selected { background: #e8f5ee; border-color: #2D6A4F; color: #1B3A2D; font-weight: 500; }
     .yesno-group { display: flex; gap: 10px; margin-top: 6px; }
     .yesno-opt { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 14px; border: 1px solid #cdd8d0; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; color: #333; transition: all 0.15s; user-select: none; }
     .yesno-opt:hover { background: #f0f7f2; border-color: #a0c4b0; }
@@ -59,14 +68,12 @@
     .btn:disabled { opacity: 0.35; cursor: default; pointer-events: none; }
     .btn-primary { background: #2D6A4F; border-color: #2D6A4F; color: #fff; }
     .btn-primary:hover { background: #1B3A2D; border-color: #1B3A2D; }
-    .btn-submit { width: 100%; justify-content: center; padding: 12px; font-size: 15px; background: #2D6A4F; border-color: #2D6A4F; color: #fff; border-radius: 10px; margin-top: 1.25rem; }
+    .btn-submit { width: 100%; justify-content: center; padding: 13px; font-size: 15px; background: #2D6A4F; border-color: #2D6A4F; color: #fff; border-radius: 10px; margin-top: 1.25rem; }
     .btn-submit:hover { background: #1B3A2D; }
     .dots { display: flex; gap: 7px; align-items: center; }
     .dot { width: 7px; height: 7px; border-radius: 50%; background: #cdd8d0; cursor: pointer; transition: all 0.2s; }
     .dot.done { background: #74b893; }
     .dot.active { background: #2D6A4F; width: 20px; border-radius: 4px; }
-    .fields-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    @media (max-width: 480px) { .fields-row { grid-template-columns: 1fr; } }
     .privacy-note { background: #e8f5ee; border: 1px solid #b8dbc8; border-radius: 8px; padding: 12px 14px; font-size: 12px; color: #2D6A4F; line-height: 1.6; margin-top: 1.25rem; display: flex; gap: 8px; align-items: flex-start; }
     .privacy-note svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 1px; fill: #2D6A4F; }
     .success-msg { display: none; text-align: center; padding: 2.5rem 1rem; }
@@ -75,8 +82,8 @@
     .success-msg h2 { font-size: 18px; font-weight: 600; color: #1B3A2D; margin-bottom: 8px; }
     .success-msg p { font-size: 14px; color: #666; line-height: 1.6; }
     .section-divider { border: none; border-top: 1px solid #edf3ef; margin: 1.25rem 0; }
-    .contact-section { background: #f9fbf9; border-radius: 10px; padding: 1rem; margin-top: 1.25rem; }
-    .contact-section label { display: block; font-size: 13px; font-weight: 500; color: #444; margin-bottom: 6px; }
+    .field-group { margin-bottom: 1rem; }
+    .field-group:last-child { margin-bottom: 0; }
   </style>
 </head>
 <body>
@@ -99,52 +106,98 @@
     <h1>Partner Assessment</h1>
     <p>This questionnaire is the first step in evaluating a potential collaboration within the Serra Archimede® partner programme.<br><br>Estimated time: 20 minutes.</p>
     <div class="progress-wrap">
-      <div class="progress-track"><div class="progress-fill" id="pbar" style="width:20%"></div></div>
+      <div class="progress-track"><div class="progress-fill" id="pbar" style="width:16.6%"></div></div>
       <div class="progress-meta">
-        <span id="plabel">Section 1 of 5 — Organisation profile</span>
-        <span id="pcount">20% complete</span>
+        <span id="plabel">Step 1 of 6 — Company profile</span>
+        <span id="pcount">17% complete</span>
       </div>
     </div>
   </div>
 
-  <!-- SECTION A -->
-  <div class="section-card active" id="sec-A">
+  <!-- SECTION 0 — COMPANY PROFILE -->
+  <div class="section-card active" id="sec-0">
+    <div class="section-header">
+      <div class="section-pill intro">0</div>
+      <div class="section-info">
+        <div class="section-title">Company profile</div>
+        <div class="section-sub">Basic information about your organisation</div>
+      </div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Company name <span class="req">*</span></label>
+      <input type="text" id="co_name" placeholder="E.g. Solverde GmbH">
+    </div>
+    <div class="grid-2" style="margin-bottom:1rem;">
+      <div>
+        <label class="field-label">Year of incorporation</label>
+        <input type="text" id="co_year" placeholder="E.g. 2015">
+      </div>
+      <div>
+        <label class="field-label">Country <span class="req">*</span></label>
+        <input type="text" id="co_country" placeholder="E.g. Germany">
+      </div>
+    </div>
+    <hr class="section-divider">
+    <div style="font-size:13px;font-weight:600;color:#1B3A2D;margin-bottom:12px;">Contact person</div>
+    <div class="grid-2" style="margin-bottom:10px;">
+      <div>
+        <label class="field-label">First name <span class="req">*</span></label>
+        <input type="text" id="co_firstname" placeholder="First name">
+      </div>
+      <div>
+        <label class="field-label">Last name <span class="req">*</span></label>
+        <input type="text" id="co_lastname" placeholder="Last name">
+      </div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Role / Job title <span class="req">*</span></label>
+      <input type="text" id="co_role" placeholder="E.g. CEO, Business Development Manager">
+    </div>
+    <div class="field-group">
+      <label class="field-label">Email address <span class="req">*</span></label>
+      <input type="email" id="co_email" placeholder="your@company.com">
+    </div>
+    <hr class="section-divider">
+    <div class="field-group">
+      <label class="field-label">Brief description of your main activity</label>
+      <textarea id="co_description" rows="3" placeholder="What you do, for whom, and in which sector..."></textarea>
+    </div>
+  </div>
+
+  <!-- SECTION A — ORGANISATION -->
+  <div class="section-card" id="sec-A">
     <div class="section-header">
       <div class="section-pill">A</div>
       <div class="section-info">
         <div class="section-title">Organisation profile</div>
-        <div class="section-sub">Who you are and how you operate</div>
+        <div class="section-sub">Size, markets and structure</div>
       </div>
-      <div class="section-count">5 questions</div>
+      <div class="section-count">4 questions</div>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">A1</span><span class="q-text">Company name, country, year of incorporation and legal form.</span></div>
-      <textarea id="a1" rows="2" placeholder="E.g. Solverde GmbH, Germany, 2015, GmbH"></textarea>
+      <div class="q-label"><span class="q-code">A1</span><span class="q-text">How many people work in your organisation? Approximate breakdown by function (commercial, technical, administrative).</span></div>
+      <textarea id="a1" rows="2" placeholder="E.g. 25 people: 8 commercial, 12 technical, 5 administrative"></textarea>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">A2</span><span class="q-text">Briefly describe your main activity: what you do, for whom, and for how long.</span></div>
-      <textarea id="a2" rows="3" placeholder="Brief description of your main activity..."></textarea>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-code">A3</span><span class="q-text">How many people work in your organisation? Approximate breakdown by function (commercial, technical, administrative).</span></div>
-      <textarea id="a3" rows="2" placeholder="E.g. 25 people: 8 commercial, 12 technical, 5 administrative"></textarea>
-    </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-code">A4</span><span class="q-text">Indicative annual turnover.</span></div>
+      <div class="q-label"><span class="q-code">A2</span><span class="q-text">Indicative annual turnover.</span></div>
       <div class="radio-group">
-        <label class="radio-opt"><input type="radio" name="a4" value="< €1M"> &lt; €1M</label>
-        <label class="radio-opt"><input type="radio" name="a4" value="€1M–€5M"> €1M – €5M</label>
-        <label class="radio-opt"><input type="radio" name="a4" value="€5M–€20M"> €5M – €20M</label>
-        <label class="radio-opt"><input type="radio" name="a4" value="> €20M"> &gt; €20M</label>
+        <label class="radio-opt"><input type="radio" name="a2" value="< €1M"> &lt; €1M</label>
+        <label class="radio-opt"><input type="radio" name="a2" value="€1M–€5M"> €1M – €5M</label>
+        <label class="radio-opt"><input type="radio" name="a2" value="€5M–€20M"> €5M – €20M</label>
+        <label class="radio-opt"><input type="radio" name="a2" value="> €20M"> &gt; €20M</label>
       </div>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">A5</span><span class="q-text">Are you active in a single country or in multiple markets? If multiple, please list them.</span></div>
-      <textarea id="a5" rows="2" placeholder="E.g. Germany, Austria, Switzerland"></textarea>
+      <div class="q-label"><span class="q-code">A3</span><span class="q-text">Are you active in a single country or in multiple markets? If multiple, please list them.</span></div>
+      <textarea id="a3" rows="2" placeholder="E.g. Germany, Austria, Switzerland"></textarea>
+    </div>
+    <div class="q-block">
+      <div class="q-label"><span class="q-code">A4</span><span class="q-text">Legal form.</span></div>
+      <input type="text" id="a4" placeholder="E.g. GmbH, S.A., Sp. z o.o., Ltd...">
     </div>
   </div>
 
-  <!-- SECTION B -->
+  <!-- SECTION B — AGRICULTURAL -->
   <div class="section-card" id="sec-B">
     <div class="section-header">
       <div class="section-pill">B</div>
@@ -152,23 +205,23 @@
         <div class="section-title">Agricultural sector expertise</div>
         <div class="section-sub">Your presence and access to the agricultural world</div>
       </div>
-      <div class="section-count">5 questions</div>
+      <div class="section-count">6 questions</div>
     </div>
     <div class="q-block">
       <div class="q-label"><span class="q-code">B1</span><span class="q-text">Do you already work with farming businesses? In what capacity (supply, consultancy, distribution, financing, representation, other)?</span></div>
       <textarea id="b1" rows="3" placeholder="Describe your current relationship with the agricultural sector..."></textarea>
     </div>
     <div class="q-block">
-      <div class="q-label"><span class="q-code">B2</span><span class="q-text">In which agricultural supply chains are you most active?</span></div>
-      <div class="radio-group">
-        <label class="radio-opt"><input type="radio" name="b2" value="Fruit & vegetables"> Fruit &amp; vegetables</label>
-        <label class="radio-opt"><input type="radio" name="b2" value="Cereals"> Cereals</label>
-        <label class="radio-opt"><input type="radio" name="b2" value="Wine"> Wine</label>
-        <label class="radio-opt"><input type="radio" name="b2" value="Floriculture"> Floriculture</label>
-        <label class="radio-opt"><input type="radio" name="b2" value="Livestock"> Livestock</label>
-        <label class="radio-opt"><input type="radio" name="b2" value="Other"> Other</label>
+      <div class="q-label"><span class="q-code">B2</span><span class="q-text">In which agricultural supply chains are you most active? <span style="font-size:12px;color:#888;font-weight:400;">(select all that apply)</span></span></div>
+      <div class="check-group">
+        <label class="check-opt"><input type="checkbox" name="b2" value="Fruit & vegetables"> Fruit &amp; vegetables</label>
+        <label class="check-opt"><input type="checkbox" name="b2" value="Cereals"> Cereals</label>
+        <label class="check-opt"><input type="checkbox" name="b2" value="Wine"> Wine</label>
+        <label class="check-opt"><input type="checkbox" name="b2" value="Floriculture"> Floriculture</label>
+        <label class="check-opt"><input type="checkbox" name="b2" value="Livestock"> Livestock</label>
+        <label class="check-opt"><input type="checkbox" name="b2" value="Other"> Other</label>
       </div>
-      <div class="comment-box" id="b2-comment"><textarea id="b2-other" rows="1" placeholder="Please specify..."></textarea></div>
+      <div class="comment-box" id="b2-other-box" style="margin-top:8px;"><input type="text" id="b2-other" placeholder="Please specify other supply chain..."></div>
     </div>
     <div class="q-block">
       <div class="q-label"><span class="q-code">B3</span><span class="q-text">Do you have specific experience with protected cultivation (greenhouses)?</span></div>
@@ -201,7 +254,7 @@
     </div>
   </div>
 
-  <!-- SECTION C -->
+  <!-- SECTION C — ENERGY -->
   <div class="section-card" id="sec-C">
     <div class="section-header">
       <div class="section-pill">C</div>
@@ -237,7 +290,7 @@
     </div>
   </div>
 
-  <!-- SECTION D -->
+  <!-- SECTION D — COMMERCIAL -->
   <div class="section-card" id="sec-D">
     <div class="section-header">
       <div class="section-pill">D</div>
@@ -245,7 +298,7 @@
         <div class="section-title">Commercial and operational capability</div>
         <div class="section-sub">How you operate in the market and what you can bring</div>
       </div>
-      <div class="section-count">4 questions</div>
+      <div class="section-count">3 questions</div>
     </div>
     <div class="q-block">
       <div class="q-label"><span class="q-code">D1</span><span class="q-text">Do you have a network of local installers, technical suppliers or subcontractors you collaborate with regularly?</span></div>
@@ -271,16 +324,9 @@
       </div>
       <div class="comment-box" id="d3-comment"><textarea id="d3-detail" rows="1" placeholder="E.g. in-house team, local agency..."></textarea></div>
     </div>
-    <div class="q-block">
-      <div class="q-label"><span class="q-code">D4</span><span class="q-text">Have you already collaborated with Italian companies or international partners on development or distribution projects?</span></div>
-      <div class="yesno-group">
-        <label class="yesno-opt"><input type="radio" name="d4" value="Yes"> Yes</label>
-        <label class="yesno-opt"><input type="radio" name="d4" value="No"> No</label>
-      </div>
-    </div>
   </div>
 
-  <!-- SECTION E -->
+  <!-- SECTION E — MOTIVATION -->
   <div class="section-card" id="sec-E">
     <div class="section-header">
       <div class="section-pill">E</div>
@@ -302,39 +348,25 @@
       <div class="q-label"><span class="q-code">E3</span><span class="q-text">What do you expect from REGRAN in terms of support (technical, commercial, training, permitting)?</span></div>
       <textarea id="e3" rows="3" placeholder="Your support expectations from REGRAN..."></textarea>
     </div>
-
     <hr class="section-divider">
-
-    <div class="contact-section">
-      <label>Your contact details</label>
-      <div class="fields-row" style="margin-bottom: 10px;">
-        <input type="text" id="fname" placeholder="Full name">
-        <input type="text" id="frole" placeholder="Role in company">
-      </div>
-      <input type="email" id="femail" placeholder="Email address">
-    </div>
-
     <div class="privacy-note">
       <svg viewBox="0 0 24 24"><path d="M12 2L4 5v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V5L12 2z"/></svg>
       All information provided is treated in strict confidence and used exclusively by REGRAN S.r.l. for the purposes of evaluating the partner programme. Your data will not be shared with third parties.
     </div>
-
     <div id="submit-area">
       <button class="btn btn-primary btn-submit" onclick="submitForm()">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
         Submit questionnaire to REGRAN
       </button>
     </div>
-
     <div id="success-msg" class="success-msg">
-      <div class="success-icon">
-        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
+      <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
       <h2>Questionnaire submitted successfully</h2>
       <p>Thank you. The REGRAN team will contact you within 3–5 business days to schedule the follow-up call.</p>
     </div>
   </div>
 
+  <!-- Navigation -->
   <div class="nav-row">
     <button class="btn" id="btn-prev" onclick="goTo(current-1)" disabled>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
@@ -350,8 +382,8 @@
 </div>
 
 <script>
-const sections = ['A','B','C','D','E'];
-const sectionNames = ['Organisation profile','Agricultural expertise','Energy expertise','Commercial capability','Motivation & vision'];
+const sections = ['0','A','B','C','D','E'];
+const sectionNames = ['Company profile','Organisation profile','Agricultural expertise','Energy expertise','Commercial capability','Motivation & vision'];
 let current = 0;
 
 function buildDots() {
@@ -369,7 +401,7 @@ function buildDots() {
 function updateProgress() {
   const pct = Math.round((current + 1) / sections.length * 100);
   document.getElementById('pbar').style.width = pct + '%';
-  document.getElementById('plabel').textContent = 'Section ' + (current + 1) + ' of ' + sections.length + ' — ' + sectionNames[current];
+  document.getElementById('plabel').textContent = 'Step ' + (current + 1) + ' of ' + sections.length + ' — ' + sectionNames[current];
   document.getElementById('pcount').textContent = pct + '% complete';
 }
 
@@ -394,9 +426,6 @@ document.querySelectorAll('.radio-group input[type=radio]').forEach(r => {
   r.addEventListener('change', function() {
     this.closest('.radio-group').querySelectorAll('.radio-opt').forEach(o => o.classList.remove('selected'));
     this.closest('.radio-opt').classList.add('selected');
-    if (this.name === 'b2') {
-      document.getElementById('b2-comment').classList.toggle('visible', this.value === 'Other');
-    }
   });
 });
 
@@ -404,6 +433,15 @@ document.querySelectorAll('.yesno-group input[type=radio]').forEach(r => {
   r.addEventListener('change', function() {
     this.closest('.yesno-group').querySelectorAll('.yesno-opt').forEach(o => o.classList.remove('selected'));
     this.closest('.yesno-opt').classList.add('selected');
+  });
+});
+
+document.querySelectorAll('.check-group input[type=checkbox]').forEach(cb => {
+  cb.addEventListener('change', function() {
+    this.closest('.check-opt').classList.toggle('selected', this.checked);
+    if (this.name === 'b2' && this.value === 'Other') {
+      document.getElementById('b2-other-box').classList.toggle('visible', this.checked);
+    }
   });
 });
 
@@ -417,38 +455,46 @@ function radioVal(name) {
   return el ? el.value : '';
 }
 
+function checkboxVals(name) {
+  return Array.from(document.querySelectorAll('input[name="' + name + '"]:checked')).map(el => el.value).join(', ');
+}
+
 async function submitForm() {
   const btn = document.querySelector('.btn-submit');
   btn.disabled = true;
   btn.innerHTML = 'Sending...';
 
+  const b2full = checkboxVals('b2') + (val('b2-other') ? ' (other: ' + val('b2-other') + ')' : '');
+
   const data = {
-    _subject: 'Serra Archimede® — Partner Assessment — ' + (val('a1').split(',')[0] || 'Partner'),
-    _replyto: val('femail'),
-    contact_name: val('fname'),
-    contact_role: val('frole'),
-    contact_email: val('femail'),
-    A1_company: val('a1'),
-    A2_activity: val('a2'),
-    A3_organisation: val('a3'),
-    A4_turnover: radioVal('a4'),
-    A5_markets: val('a5'),
+    _subject: 'Serra Archimede® — Partner Assessment — ' + (val('co_name') || 'Partner'),
+    _replyto: val('co_email'),
+    company_name: val('co_name'),
+    company_year: val('co_year'),
+    company_country: val('co_country'),
+    contact_name: val('co_firstname') + ' ' + val('co_lastname'),
+    contact_role: val('co_role'),
+    contact_email: val('co_email'),
+    company_description: val('co_description'),
+    A1_organisation: val('a1'),
+    A2_turnover: radioVal('a2'),
+    A3_markets: val('a3'),
+    A4_legal_form: val('a4'),
     B1_farming_relationship: val('b1'),
-    B2_supply_chain: radioVal('b2') + (val('b2-other') ? ' — ' + val('b2-other') : ''),
-    B3_greenhouse_experience: radioVal('b3') + (val('b3-detail') ? ' — ' + val('b3-detail') : ''),
-    B4_portfolio_size: radioVal('b4'),
+    B2_supply_chains: b2full,
+    B3_greenhouse: radioVal('b3') + (val('b3-detail') ? ' — ' + val('b3-detail') : ''),
+    B4_portfolio: radioVal('b4'),
     B5_receptive_areas: val('b5'),
     B6_land_access: radioVal('b6') + (val('b6-detail') ? ' — ' + val('b6-detail') : ''),
     C1_pv_experience: val('c1'),
     C2_res_plants: val('c2'),
-    C3_incentive_framework: radioVal('c3') + (val('c3-detail') ? ' — ' + val('c3-detail') : ''),
+    C3_incentives: radioVal('c3') + (val('c3-detail') ? ' — ' + val('c3-detail') : ''),
     C4_bess_cer: radioVal('c4') + (val('c4-detail') ? ' — ' + val('c4-detail') : ''),
-    D1_supplier_network: radioVal('d1') + (val('d1-detail') ? ' — ' + val('d1-detail') : ''),
+    D1_suppliers: radioVal('d1') + (val('d1-detail') ? ' — ' + val('d1-detail') : ''),
     D2_permitting: radioVal('d2') + (val('d2-detail') ? ' — ' + val('d2-detail') : ''),
-    D3_local_marketing: radioVal('d3') + (val('d3-detail') ? ' — ' + val('d3-detail') : ''),
-    D4_international_partnerships: radioVal('d4'),
-    E1_key_strength: val('e1'),
-    E2_main_obstacle: val('e2'),
+    D3_marketing: radioVal('d3') + (val('d3-detail') ? ' — ' + val('d3-detail') : ''),
+    E1_strength: val('e1'),
+    E2_obstacle: val('e2'),
     E3_expectations: val('e3'),
   };
 
